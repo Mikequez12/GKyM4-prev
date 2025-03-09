@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+
+:root {
+    --rich-black: #11151f;
+    --oxford-blue: #23263b;
+    --honolulu-blue: #0077B6;
+    --old-lace: #FFF7E7;
+    --fire-engine-red: #cc2c2c;
+
+    --shadow: 0 3px 15px 3px rgba(0, 0, 0, .5);
+    --hidden-shadow: 0 0px 0px 0px rgba(0, 0, 0, .5);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: var(--rich-black);
+}
+
+#document {
+    overflow: auto;
+    padding: 5px;
+    position: fixed;
+    left: 330px;
+    top: 0;
+    width: calc(100% - 340px);
+    height: 100%;
+
+    transition: 1s;
+
+    z-index: 0;
+}
+
+body:has(#lateral > #exit.close) > #document {
+    left: 0px !important;
+    width: 100%;
+}
+
+#lateral {
+    padding: 15px;
+    background: var(--oxford-blue);
+    left: 0;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    display: block;
+    position: fixed;
+    transition: 1s;
+    
+    z-index: 10;
+
+    box-shadow: var(--shadow);
+}
+
+#lateral:has(#exit.close) {
+    left: -330px;
+}
+
+#lateral > #exit {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    outline-offset: 5px;
+    cursor: pointer;
+    background-image: url('svg/right-arrow.svg');
+    border-radius: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    transition: 1s;
+}
+
+#exit {
+    box-shadow: none;
+}
+
+#lateral > #exit:hover {
+    transform: scale(1.3);
+}
+
+#lateral > #exit:not(.close) {
+    left: 355px;
+    top: 20px;
+    rotate: -180deg;
+}
+
+#lateral > #exit.close {
+    left: 25px;
+    top: 20px;
+}
+
+* {
+    color: var(--old-lace);
+    font-family: 'Modern Antiqua';
+}
+
+body {
+    font-size: 25px;
+    
+    margin: 0;
+
+    text-align: center;
+
+    background-color: var(--rich-black);
+}
+
+#logo {
+    width:500px;
+    image-rendering: pixelated;
+
+    border-radius: 5px;
+
+    box-shadow: var(--shadow);
+    margin-bottom: 10px;
+
+    opacity: 0;
+
+    transition: 1s;
+}
+
+#topbar-btn {
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+    transition: 1s;
+}
+
+#topbar-btn:hover {
+    padding: 20px 0;
+}
+
+#topbar-btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to top, var(--old-lace) 2px, transparent 2px, transparent calc(100% - 2px), var(--old-lace) calc(100% - 2px));
+
+    border-radius: 5px;
+
+    transition: .8s ease-in-out;
+}
+
+#topbar-btn:hover::after {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+#topbar-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+    opacity: 0;
+
+    background-color: #fff1;
+
+    transition: 1s;
+
+    border-radius: 5px;
+}
+
+#topbar-btn:hover::before {
+    opacity: 1;
+}
+
+button {
+    background: var(--oxford-blue);
+    border: none;
+    font-size: 20px;
+
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+
+    transition: .5s;
+}
+
+button:hover {
+    background: var(--old-lace);
+    color: var(--rich-black)
+}
+
+button:active {
+    transition: .1s;
+    background: var(--honolulu-blue);
+    color: var(--old-lace)
+}
+
+h1 {
+    font-size: 150% !important;
+}
+
+.emoji {
+    height:20px;
+    transform: translateY(5px) translateX(-5px);
+}
+
+#star {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 0;
+}
+
+@keyframes star {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .25;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+code {
+    background: var(--oxford-blue);
+    display: inline;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

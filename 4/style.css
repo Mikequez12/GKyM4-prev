@@ -1,0 +1,48 @@
+img.block {
+    transform: scale(0);
+    width: calc(var(--size) * 2);
+}
+
+img.block.show {
+    transform: scale(1);
+    animation: 3s finish cubic-bezier(0,.5,.5,1);
+}
+
+@keyframes finish {
+    0% {
+        transform: scale(0) translateY(100px);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+#blockcanvas {
+    position: relative;
+
+    width:50%;
+
+    display: inline-block;
+}
+
+
+
+body {
+    text-align: center;
+
+    background: linear-gradient(to top, #a7afb9, rgb(156, 195, 202), rgb(90, 166, 189), rgb(120, 163, 243));
+}
+
+
+
+h1#status {
+    font-family: 'minecraft';
+    font-size: 100px;
+}
+
+@font-face {
+    font-family: 'minecraft';
+    src: url(fonts/mc-title.ttf);
+}
